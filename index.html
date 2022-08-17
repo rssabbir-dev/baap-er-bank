@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baap Er Bank</title>
+    <!-- tailwind css cdn link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="space-y-10 my-10">
+    <section id="home-page">
+
+        <header>
+            <h1 class="text-5xl text-center my-5">Login Your, <span class="text-purple-700">Baap Er Bank</span></h1>
+        </header>
+        <!-- Alert Box -->
+        <div id="auth-alert" class="flex justify-center invisible">
+            <div class="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center" role="alert">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle"
+                    class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z">
+                    </path>
+                </svg>
+                Invalid email or password
+            </div>
+        </div>
+        <main>
+            <section class="grid grid-cols-2 mb-10 w-3/4 mx-auto gap-10">
+                <div class="bg-yellow-200 p-5 flex justify-center items-center flex-col space-y-5 rounded-xl">
+                    <h2 class="text-4xl font-bold text-purple-700">Login Form</h2>
+                    <input class="w-3/4 block p-2 rounded-lg" type="email" placeholder="Enter Your Email" id="email-box" required>
+                    <input class="w-3/4 block p-2 rounded-lg" type="text" placeholder="Enter Your Password" id="password-box" required>
+                    <button class="py-2 px-5 rounded-lg text-white hover:bg-purple-800 bg-purple-700"
+                        id="login-button">Login</button>
+                </div>
+                <div>
+                    <img src="security.svg" alt="">
+                </div>
+            </section>
+            <section class="w-3/4 mx-auto space-y-10">
+                <h2 class="text-4xl text-center">Account Holders</h2>
+                <div class="bg-lime-300 p-10 grid grid-cols-1 md:grid-cols-2 rounded-xl gap-10" id="account-holder-container">
+                </div>
+            </section>
+        </main>
+    </section>
+    <section id="bank-page" class="hidden">
+        <header>
+            <h1 class="text-5xl text-center my-5">Welcome <span id="user-name">User</span>, <span
+                    class="text-purple-700">
+                    Baap Er Bank</span></h1>
+        </header>
+        <main class="space-y-10">
+            <section>
+                <div class="grid grid-cols-1 md:grid-cols-3 w-3/4 gap-10 mx-auto">
+                    <div class="bg-yellow-300 p-6 rounded-xl">
+                        <h4 class="text-2xl">Deposit</h4>
+                        <h2 class="text-5xl">$<span id="deposit-balance">00</span></h2>
+                    </div>
+                    <div class="bg-lime-300 p-6 rounded-xl">
+                        <h4 class="text-2xl">Withdraw</h4>
+                        <h2 class="text-5xl">$<span id="withdraw-balance">00</span></h2>
+                    </div>
+                    <div class="bg-purple-300 p-6 rounded-xl">
+                        <h4 class="text-2xl">Balance</h4>
+                        <h2 class="text-5xl">$<span id="account-balance">00</span>
+                        </h2>
+                    </div>
+                </div>
+            </section>
+            <section class="w-3/4 mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-purple-500 p-10 space-y-5 rounded-xl">
+                        <h4 class="text-2xl text-white">Please Deposit</h4>
+                        <input class="block p-2 w-full lg:w-3/4 rounded-lg" type="number" placeholder="$ Amount you want to deposit" id="deposit-amount">
+                        <button
+                            class="py-2 px-5 rounded-lg text-white hover:bg-purple-800 bg-lime-500" id="deposit-button">Deposit</button>
+                    </div>
+                    <div class="bg-sky-500 p-10 space-y-5 rounded-xl">
+                        <h4 class="text-2xl text-white">Please Withdraw</h4>
+                        <input class="block p-2 w-full lg:w-3/4 rounded-lg" type="number" placeholder="$ Amount you want to withdraw" id="withdraw-amount">
+                        <button
+                            class="py-2 px-5 rounded-lg text-white hover:bg-purple-800 bg-yellow-500" id="withdraw-button">Withdraw</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
