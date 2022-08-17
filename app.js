@@ -58,6 +58,7 @@ const depositBalance = document.getElementById('deposit-balance');
 const authAlert = document.getElementById('auth-alert');
 
 let accountHolder = {};
+let currentAccountHolder = {}
 
 loginButton.addEventListener('click', () => {
 	const emailBox = document.getElementById('email-box');
@@ -77,6 +78,8 @@ loginButton.addEventListener('click', () => {
 			accountBalance.innerText = accountHolder.balance;
 			depositBalance.innerText = accountHolder.deposit;
 			withdrawBalance.innerText = accountHolder.withdraw;
+
+			currentAccountHolder = accountHolder;
 		} else {
 			authAlert.classList.remove('invisible');
 			setTimeout(() => {
@@ -94,10 +97,10 @@ const withdrawButton = document.getElementById('withdraw-button');
 depositButton.addEventListener('click', () => {
 	const depositValue = parseFloat(depositAmount.value);
 	if (depositValue > 0) {
-		accountHolder.balance += depositValue;
-		accountHolder.deposit += depositValue;
-		accountBalance.innerText = accountHolder.balance;
-		depositBalance.innerText = accountHolder.deposit;
+		currentAccountHolder.balance += depositValue;
+		currentAccountHolder.deposit += depositValue;
+		accountBalance.innerText = currentAccountHolder.balance;
+		depositBalance.innerText = currentAccountHolder.deposit;
 
 		depositAmount.value = '';
 	} else {
@@ -107,11 +110,11 @@ depositButton.addEventListener('click', () => {
 });
 withdrawButton.addEventListener('click', () => {
 	const withdrawValue = parseFloat(withdrawAmount.value);
-	if (withdrawValue > 0 && accountHolder.balance >= withdrawValue) {
-		accountHolder.balance -= withdrawValue;
-		accountHolder.withdraw += withdrawValue;
-		accountBalance.innerText = accountHolder.balance;
-		withdrawBalance.innerText = accountHolder.withdraw;
+	if (withdrawValue > 0 && currentAccountHolder.balance >= withdrawValue) {
+		currentAccountHolder.balance -= withdrawValue;
+		currentAccountHolder.withdraw += withdrawValue;
+		accountBalance.innerText = currentAccountHolder.balance;
+		withdrawBalance.innerText = currentAccountHolder.withdraw;
 
 		withdrawAmount.value = '';
 	} else if (withdrawValue < 0) {
