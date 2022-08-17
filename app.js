@@ -39,6 +39,14 @@ const accountHolders = [
 		deposit: 2342,
 		withdraw: 9788,
 	},
+	{
+		name: 'Ahammed Abdullha',
+		email: 'abdullha@gmail.com',
+		password: 'aBduLlha00#4$',
+		balance: 302,
+		deposit: 4,
+		withdraw: 50,
+	},
 ];
 const homePage = document.getElementById('home-page');
 const bankPage = document.getElementById('bank-page');
